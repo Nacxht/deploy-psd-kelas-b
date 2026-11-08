@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Pemantauan Akustik Real-Time: Sawmill vs Non-Sawmill</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Palette: Terbatas pada 2-3 warna inti + 1 aksen fungsional (R-29, WCAG AA) */
+            --bg-base: #0a0e17;
+            --bg-surface: #121824;
+            --bg-surface-elevated: #182232;
+            --bg-inset: #0e141f;
+
+            --border-subtle: #232e3e;
+            --border-medium: #334155;
+            --border-focus: #38bdf8;
+
+            /* Kontras teks minimal 4.5:1 terhadap background */
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #8292a4;
+
+            /* Aksen utama & fungsional */
+            --accent-primary: #2563eb;
+            --accent-hover: #1d4ed8;
+
+            /* State semantik (Sawmill = Peringatan/Merah, Non-Sawmill = Aman/Hijau) */
+            --status-alert-border: #ef4444;
+            --status-alert-bg: rgba(239, 68, 68, 0.12);
+            --status-alert-text: #fca5a5;
+
+            --status-safe-border: #10b981;
+            --status-safe-bg: rgba(16, 185, 129, 0.12);
+            --status-safe-text: #6ee7b7;
+
+            --status-idle-border: #334155;
+            --status-idle-bg: #16202e;
+            --status-idle-text: #94a3b8;
+
+            --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 14px;
+        }
+
+        /* Base pointer cursor layer (antislop-human / A11Y-PATTERNS) */
+        a[href], button, summary, select, label[for],
+        [role="button"], [role="link"], [role="switch"],
+        input[type="checkbox"], input[type="radio"], input[type="range"] {
+            cursor: pointer;
+        }
+        :disabled, [aria-disabled="true"] {
+            cursor: not-allowed;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 24px 16px;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Focus rings berstandar aksesibilitas tinggi (R-32, WCAG 2.4.7) */
+        button:focus-visible,
+        input:focus-visible,
+        [tabindex]:focus-visible {
+            outline: 2px solid var(--border-focus);
+            outline-offset: 2px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1160px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        /* HEADER */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .brand-block h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+        }
+
+        .brand-block p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+
+        .header-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .pill-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            border-radius: var(--radius-sm);
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            font-size: 0.8rem;
+            font-family: var(--font-mono);
+            color: var(--text-secondary);
+        }
+
+        /* Status Dot tanpa animasi denyut tak berujung (R-19) */
+        .indicator-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #64748b;
+            flex-shrink: 0;
+        }
+
+        .indicator-dot.active {
+            background: #10b981;
+        }
+
+        /* DASHBOARD GRID - Responsif reflow (R-03) */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 880px) {
+            .grid-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Panel kartu solid tanpa glassmorphism berlebihan (R-10, R-12) */
+        .panel-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        .panel-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .panel-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-primary);
+        }
+
+        .panel-header-badge {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            padding: 4px 8px;
+            border-radius: var(--radius-sm);
+            background: var(--bg-inset);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+        }
+
+        /* BANNER PREDIKSI UTAMA */
+        .prediction-hero-box {
+            padding: 24px 20px;
+            border-radius: var(--radius-md);
+            text-align: center;
+            border: 1px solid var(--status-idle-border);
+            background: var(--status-idle-bg);
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .prediction-hero-box.sawmil {
+            border-color: var(--status-alert-border);
+            background: var(--status-alert-bg);
+        }
+
+        .prediction-hero-box.nonsawmil {
+            border-color: var(--status-safe-border);
+            background: var(--status-safe-bg);
+        }
+
+        .pred-tagline {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+        }
+
+        .pred-icon-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-sm);
+            margin: 4px 0;
+        }
+
+        .pred-label {
+            font-size: 1.45rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
+        }
+
+        .pred-sub {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+        }
+
+        .pred-sub span {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-family: var(--font-mono);
+        }
+
+        /* STATUS BADGES */
+        .dual-pred-bar {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .pred-badge-card {
+            background: var(--bg-inset);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            padding: 12px 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .pred-badge-card .badge-title {
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--text-muted);
+        }
+
+        .pred-badge-card .badge-value {
+            font-size: 1.05rem;
+            font-weight: 700;
+            font-family: var(--font-mono);
+            color: var(--text-primary);
+        }
+
+        /* OSILOSKOP CANVAS */
+        .visualizer-container {
+            position: relative;
+            width: 100%;
+            height: 120px;
+            background: var(--bg-inset);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+        }
+
+        canvas#oscilloscope {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .canvas-overlay-tag {
+            position: absolute;
+            top: 6px;
+            left: 10px;
+            font-size: 0.72rem;
+            font-family: var(--font-mono);
+            color: var(--text-muted);
+            pointer-events: none;
+        }
+
+        /* AUDIO LEVEL & RMS */
+        .level-meter-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .level-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-family: var(--font-mono);
+        }
+
+        .level-bar-track {
+            width: 100%;
+            height: 10px;
+            background: var(--bg-inset);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .level-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: #3b82f6;
+            border-radius: var(--radius-sm);
+            transition: width 0.12s linear;
+        }
+
+        /* PROBABILITAS */
+        .prob-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .prob-legend {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.82rem;
+            font-family: var(--font-mono);
+        }
+
+        .prob-split-track {
+            height: 12px;
+            width: 100%;
+            background: var(--bg-inset);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            display: flex;
+        }
+
+        .prob-fill-saw {
+            height: 100%;
+            background: #ef4444;
+            width: 0%;
+            transition: width 0.25s ease;
+        }
+
+        .prob-fill-non {
+            height: 100%;
+            background: #10b981;
+            width: 100%;
+            transition: width 0.25s ease;
+        }
+
+        /* KONTROL INTERAKTIF - Ukuran target sentuh minimal 44px (R-03) */
+        .action-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .action-row .btn-stream-toggle {
+            grid-column: span 2;
+        }
+
+        @media (max-width: 520px) {
+            .action-row {
+                grid-template-columns: 1fr;
+            }
+            .action-row .btn-stream-toggle {
+                grid-column: span 1;
+            }
+        }
+
+        .btn-action {
+            appearance: none;
+            border: 1px solid transparent;
+            min-height: 44px;
+            padding: 10px 18px;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-main);
+            font-size: 0.92rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background-color 0.15s ease, border-color 0.15s ease;
+        }
+
+        .btn-stream-toggle {
+            background: var(--accent-primary);
+            color: #ffffff;
+            border-color: #3b82f6;
+        }
+
+        .btn-stream-toggle:hover {
+            background: var(--accent-hover);
+        }
+
+        .btn-stream-toggle.streaming {
+            background: rgba(239, 68, 68, 0.16);
+            border-color: #ef4444;
+            color: #fca5a5;
+        }
+
+        .btn-stream-toggle.streaming:hover {
+            background: rgba(239, 68, 68, 0.24);
+        }
+
+        .btn-secondary {
+            background: var(--bg-surface-elevated);
+            color: var(--text-primary);
+            border: 1px solid var(--border-medium);
+        }
+
+        .btn-secondary:hover {
+            background: #222f42;
+            border-color: #475569;
+        }
+
+        /* SLIDER SENSITIVITAS - Tap target nyaman (R-03) */
+        .gain-control {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--bg-inset);
+            padding: 10px 14px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-subtle);
+            min-height: 44px;
+        }
+
+        .gain-control label {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .gain-control input[type="range"] {
+            flex: 1;
+            height: 6px;
+            accent-color: var(--border-focus);
+            min-height: 32px;
+        }
+
+        /* TIMELINE CHART SVG */
+        .chart-wrapper {
+            background: var(--bg-inset);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            padding: 12px;
+            height: 140px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            font-family: var(--font-mono);
+            color: var(--text-muted);
+        }
+
+        svg#timelineChart {
+            width: 100%;
+            height: 90px;
+            overflow: visible;
+        }
+
+        /* TELEMETRI AKUSTIK */
+        .telemetry-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .telemetry-card {
+            background: var(--bg-inset);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            padding: 10px 12px;
+        }
+
+        .telemetry-card .t-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--text-muted);
+        }
+
+        .telemetry-card .t-val {
+            font-size: 1.05rem;
+            font-weight: 600;
+            font-family: var(--font-mono);
+            color: var(--text-primary);
+            margin-top: 3px;
+        }
+
+        /* KOTAK PANDUAN PENGUJIAN */
+        .guide-box {
+            padding: 14px 16px;
+            border-radius: var(--radius-sm);
+            background: var(--bg-inset);
+            border: 1px solid var(--border-subtle);
+            font-size: 0.84rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .guide-box strong {
+            color: var(--text-primary);
+        }
+
+        .guide-box ol {
+            padding-left: 20px;
+            margin-top: 6px;
+        }
+
+        /* FOOTER */
+        footer {
+            margin-top: 8px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            text-align: center;
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 16px;
+        }
+
+        /* Mode Gerak Berkurang (R-39, prefers-reduced-motion) */
+        @media (prefers-reduced-motion: reduce) {
+            *, ::before, ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- HEADER -->
+        <header>
+            <div class="brand-block">
+                <h1>Pemantauan Akustik Real-Time</h1>
+                <p>Deteksi Kontinu Suara Mesin Sawmill vs Suara Lingkungan</p>
+            </div>
+            <div class="header-meta">
+                <div class="pill-badge" role="status" aria-label="Status Streaming">
+                    <span id="streamDot" class="indicator-dot" aria-hidden="true"></span>
+                    <span id="streamStatusText">Streaming Nonaktif</span>
+                </div>
+                <div class="pill-badge">
+                    <span>Window: 2.5s | Hop: 0.5s</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- DASHBOARD GRID -->
+        <main class="grid-layout">
+
+            <!-- PANEL KIRI: STREAMING & AUDIO INPUT -->
+            <section class="panel-card" aria-labelledby="audioInputHeading">
+                <div class="panel-header">
+                    <h2 id="audioInputHeading" class="panel-title">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
+                            <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                            <line x1="12" x2="12" y1="19" y2="22"></line>
+                        </svg>
+                        Sinyal Audio Masuk
+                    </h2>
+                    <div id="micInfo" class="panel-header-badge">MIC SIAGA</div>
+                </div>
+
+                <!-- OSILOSKOP CANVAS -->
+                <div class="visualizer-container">
+                    <div class="canvas-overlay-tag">
+                        <span>OSILOSKOP (22.050 Hz)</span>
+                    </div>
+                    <canvas id="oscilloscope" role="img" aria-label="Visualisasi osiloskop gelombang audio real-time"></canvas>
+                </div>
+
+                <!-- AUDIO LEVEL METER (RMS) -->
+                <div class="level-meter-wrapper">
+                    <div class="level-labels">
+                        <span>Intensitas Suara (RMS)</span>
+                        <span id="rmsText">0.0000</span>
+                    </div>
+                    <div class="level-bar-track" role="meter" aria-label="Level RMS Audio" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                        <div id="rmsBar" class="level-bar-fill"></div>
+                    </div>
+                </div>
+
+                <!-- SENSITIVITAS / SOFTWARE GAIN -->
+                <div class="gain-control">
+                    <label for="gainSlider">Sensitivitas Mikrofon:</label>
+                    <input type="range" id="gainSlider" min="1" max="5" step="0.5" value="2.5" aria-valuemin="1" aria-valuemax="5" aria-valuenow="2.5">
+                    <span id="gainValue" style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-primary);">2.5x</span>
+                </div>
+
+                <!-- KONTROL UTAMA -->
+                <div class="action-row">
+                    <button id="btnToggleStreaming" class="btn-action btn-stream-toggle" aria-label="Mulai atau hentikan monitoring kontinu">
+                        <span id="btnIcon" aria-hidden="true">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            </svg>
+                        </span>
+                        <span id="btnLabel">Mulai Monitoring Kontinu</span>
+                    </button>
+                    <button id="btnResetState" class="btn-action btn-secondary" aria-label="Reset buffer audio dan status prediksi">
+                        <span aria-hidden="true">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                                <path d="M3 3v5h5"></path>
+                            </svg>
+                        </span>
+                        <span>Reset Status</span>
+                    </button>
+                    <button id="btnTestWA" type="button" class="btn-action btn-secondary" aria-label="Uji coba kirim pesan notifikasi WhatsApp melalui Webhook">
+                        <span aria-hidden="true">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 2L11 13"></path>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                        </span>
+                        <span id="btnTestWALabel">Tes Notif WA</span>
+                    </button>
+                </div>
+
+                <!-- PANDUAN PENGUJIAN -->
+                <div class="guide-box">
+                    <strong>Panduan Pengujian Suara Mesin Sawmill:</strong>
+                    <ol>
+                        <li>Tekan tombol <strong>"Mulai Monitoring Kontinu"</strong> dan setujui izin mikrofon browser.</li>
+                        <li>Dekatkan audio pembanding gergaji mesin (jarak 10-30 cm dari mikrofon).</li>
+                        <li>Sistem menerapkan <em>Sliding Window 2.5 detik</em> dan normalisasi adaptif agar intensitas suara HP terdeteksi stabil tanpa drop.</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- PANEL KANAN: KLASIFIKASI & STABILISASI -->
+            <section class="panel-card" aria-labelledby="classificationHeading">
+                <div class="panel-header">
+                    <h2 id="classificationHeading" class="panel-title">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                        </svg>
+                        Klasifikasi &amp; Stabilisasi
+                    </h2>
+                    <div class="panel-header-badge">Model: LightGBM</div>
+                </div>
+
+                <!-- PREDIKSI TERSTABILKAN (HERO BANNER) -->
+                <div id="stableBanner" class="prediction-hero-box" role="status" aria-live="polite">
+                    <div class="pred-tagline">Prediksi Terstabilkan (Temporal Filter)</div>
+                    <div id="stableIcon" class="pred-icon-wrapper" aria-hidden="true">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                    </div>
+                    <div id="stableLabel" class="pred-label" style="color: var(--text-secondary);">Menunggu Audio...</div>
+                    <div id="stableSub" class="pred-sub">Tingkat Keyakinan: <span>0.0%</span></div>
+                </div>
+
+                <!-- DUAL BADGES -->
+                <div class="dual-pred-bar">
+                    <div class="pred-badge-card">
+                        <div class="badge-title">Prediksi Instan</div>
+                        <div id="instantLabel" class="badge-value" style="color: var(--text-muted);">-</div>
+                    </div>
+                    <div class="pred-badge-card">
+                        <div class="badge-title">Kondisi Akustik</div>
+                        <div id="acousticStateLabel" class="badge-value" style="color: var(--text-secondary);">Hening</div>
+                    </div>
+                </div>
+
+                <!-- STATUS WHATSAPP & DURASI KONTINU -->
+                <div class="dual-pred-bar">
+                    <div class="pred-badge-card">
+                        <div class="badge-title">Durasi Sawmill Kontinu</div>
+                        <div id="sawmillDurationLabel" class="badge-value" style="color: var(--text-primary);">0.0s / 10s</div>
+                    </div>
+                    <div class="pred-badge-card">
+                        <div class="badge-title">Notifikasi WhatsApp (10s+)</div>
+                        <div id="waStatusLabel" class="badge-value" style="color: #38bdf8;">Siaga</div>
+                    </div>
+                </div>
+
+                <!-- PROBABILITAS METER -->
+                <div class="prob-container">
+                    <div class="prob-legend">
+                        <span style="color: #fca5a5;">Sawmill: <span id="probSawText">0.0%</span></span>
+                        <span style="color: #6ee7b7;">Non-Sawmill: <span id="probNonText">100.0%</span></span>
+                    </div>
+                    <div class="prob-split-track" role="meter" aria-label="Distribusi Probabilitas Prediksi" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                        <div id="barSaw" class="prob-fill-saw"></div>
+                        <div id="barNon" class="prob-fill-non"></div>
+                    </div>
+                </div>
+
+                <!-- TIMELINE GRAFIK PROBABILITAS -->
+                <div class="chart-wrapper">
+                    <div class="chart-header">
+                        <span>TIMELINE PROBABILITAS SAWMILL (30 DETIK TERAKHIR)</span>
+                        <span id="chartLatestVal">0.0%</span>
+                    </div>
+                    <svg id="timelineChart" viewBox="0 0 300 80" preserveAspectRatio="none" aria-label="Grafik garis probabilitas suara sawmill 30 detik terakhir">
+                        <!-- Garis ambang batas 50% -->
+                        <line x1="0" y1="40" x2="300" y2="40" stroke="#334155" stroke-dasharray="4" stroke-width="1"></line>
+                        <path id="chartPath" d="M 0 80 L 300 80" fill="rgba(239, 68, 68, 0.12)" stroke="#ef4444" stroke-width="2"></path>
+                    </svg>
+                </div>
+
+                <!-- TELEMETRI AKUSTIK LIBROSA -->
+                <div class="telemetry-grid">
+                    <div class="telemetry-card">
+                        <div class="t-label">Spectral Centroid</div>
+                        <div id="valCentroid" class="t-val">- Hz</div>
+                    </div>
+                    <div class="telemetry-card">
+                        <div class="t-label">Spectral Rolloff</div>
+                        <div id="valRolloff" class="t-val">- Hz</div>
+                    </div>
+                    <div class="telemetry-card">
+                        <div class="t-label">Zero Crossing Rate</div>
+                        <div id="valZCR" class="t-val">-</div>
+                    </div>
+                    <div class="telemetry-card">
+                        <div class="t-label">Spectral Bandwidth</div>
+                        <div id="valBandwidth" class="t-val">- Hz</div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer>
+            Pemantauan Aliran Audio &amp; Inferensi ML Real-Time | Sliding Window 2.5s / 0.5s Hop
+        </footer>
+    </div>
+
+    <!-- SCRIPT CLIENT STREAMING & DASHBOARD -->
+    <script>
+        // State Audio
+        let audioContext = null;
+        let mediaStream = null;
+        let scriptProcessor = null;
+        let analyser = null;
+        let isStreaming = false;
+        let softwareGain = 2.5;
+
+        // Buffer pengumpul audio (chunk dikirim setiap 500ms)
+        let chunkBuffer = [];
+        let chunkTimer = null;
+        const TARGET_SAMPLE_RATE = 22050;
+
+        // Ikon Vektor SVG Bersih (Bebas Emoji sesuai aturan R-04)
+        const ICONS = {
+            play: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>`,
+            stop: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="4" y="4" width="16" height="16"></rect></svg>`,
+            idle: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>`,
+            sawmil: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>`,
+            nonsawmil: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>`
+        };
+
+        // Elemen DOM
+        const btnToggleStreaming = document.getElementById('btnToggleStreaming');
+        const btnIcon = document.getElementById('btnIcon');
+        const btnLabel = document.getElementById('btnLabel');
+        const btnResetState = document.getElementById('btnResetState');
+        const streamDot = document.getElementById('streamDot');
+        const streamStatusText = document.getElementById('streamStatusText');
+        const micInfo = document.getElementById('micInfo');
+
+        const oscilloscope = document.getElementById('oscilloscope');
+        const oscCtx = oscilloscope.getContext('2d');
+        const rmsBar = document.getElementById('rmsBar');
+        const rmsText = document.getElementById('rmsText');
+        const gainSlider = document.getElementById('gainSlider');
+        const gainValue = document.getElementById('gainValue');
+
+        const stableBanner = document.getElementById('stableBanner');
+        const stableIcon = document.getElementById('stableIcon');
+        const stableLabel = document.getElementById('stableLabel');
+        const stableSub = document.getElementById('stableSub');
+
+        const instantLabel = document.getElementById('instantLabel');
+        const acousticStateLabel = document.getElementById('acousticStateLabel');
+        const sawmillDurationLabel = document.getElementById('sawmillDurationLabel');
+        const waStatusLabel = document.getElementById('waStatusLabel');
+        const btnTestWA = document.getElementById('btnTestWA');
+        const btnTestWALabel = document.getElementById('btnTestWALabel');
+        const probSawText = document.getElementById('probSawText');
+        const probNonText = document.getElementById('probNonText');
+        const barSaw = document.getElementById('barSaw');
+        const barNon = document.getElementById('barNon');
+
+        const chartPath = document.getElementById('chartPath');
+        const chartLatestVal = document.getElementById('chartLatestVal');
+
+        const valCentroid = document.getElementById('valCentroid');
+        const valRolloff = document.getElementById('valRolloff');
+        const valZCR = document.getElementById('valZCR');
+        const valBandwidth = document.getElementById('valBandwidth');
+
+        let timelineData = [];
+
+        // Penyesuaian ukuran canvas osiloskop
+        function resizeOscilloscope() {
+            oscilloscope.width = oscilloscope.parentElement.clientWidth;
+            oscilloscope.height = oscilloscope.parentElement.clientHeight;
+        }
+        window.addEventListener('resize', resizeOscilloscope);
+        resizeOscilloscope();
+
+        // Kontrol Sensitivitas
+        gainSlider.addEventListener('input', (e) => {
+            softwareGain = parseFloat(e.target.value);
+            gainValue.innerText = softwareGain.toFixed(1) + 'x';
+            gainSlider.setAttribute('aria-valuenow', softwareGain.toFixed(1));
+        });
+
+        // 1. Memulai Aliran Audio Mikrofon
+        async function startStreaming() {
+            try {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)({ sampleRate: TARGET_SAMPLE_RATE });
+                if (audioContext.state === 'suspended') {
+                    await audioContext.resume();
+                }
+
+                // Pengambilan mikrofon murni tanpa filter peredam bising OS
+                mediaStream = await navigator.mediaDevices.getUserMedia({
+                    audio: {
+                        echoCancellation: false,
+                        noiseSuppression: false,
+                        autoGainControl: false
+                    }
+                });
+
+                const source = audioContext.createMediaStreamSource(mediaStream);
+                analyser = audioContext.createAnalyser();
+                analyser.fftSize = 512;
+                source.connect(analyser);
+
+                scriptProcessor = audioContext.createScriptProcessor(4096, 1, 1);
+                scriptProcessor.onaudioprocess = (e) => {
+                    if (!isStreaming) return;
+                    const inputChannel = e.inputBuffer.getChannelData(0);
+                    const boosted = new Float32Array(inputChannel.length);
+                    for (let i = 0; i < inputChannel.length; i++) {
+                        boosted[i] = Math.max(-1.0, Math.min(1.0, inputChannel[i] * softwareGain));
+                    }
+                    chunkBuffer.push(boosted);
+                };
+
+                source.connect(scriptProcessor);
+                scriptProcessor.connect(audioContext.destination);
+
+                isStreaming = true;
+                btnToggleStreaming.classList.add('streaming');
+                btnIcon.innerHTML = ICONS.stop;
+                btnLabel.innerText = 'Hentikan Monitoring';
+                streamDot.className = 'indicator-dot active';
+                streamStatusText.innerText = 'Streaming Aktif (22.050 Hz)';
+                micInfo.innerText = 'MIKROFON AKTIF';
+
+                drawVisualizer();
+                chunkTimer = setInterval(sendAudioChunkToServer, 500);
+
+            } catch (err) {
+                console.error("Gagal mengakses mikrofon:", err);
+                alert("Tidak dapat mengakses mikrofon: " + err.message);
+                stopStreaming();
+            }
+        }
+
+        function stopStreaming() {
+            isStreaming = false;
+            clearInterval(chunkTimer);
+
+            if (scriptProcessor) {
+                scriptProcessor.disconnect();
+                scriptProcessor = null;
+            }
+            if (mediaStream) {
+                mediaStream.getTracks().forEach(track => track.stop());
+                mediaStream = null;
+            }
+            if (audioContext) {
+                audioContext.close();
+                audioContext = null;
+            }
+
+            btnToggleStreaming.classList.remove('streaming');
+            btnIcon.innerHTML = ICONS.play;
+            btnLabel.innerText = 'Mulai Monitoring Kontinu';
+            streamDot.className = 'indicator-dot';
+            streamStatusText.innerText = 'Streaming Nonaktif';
+            micInfo.innerText = 'MIC SIAGA';
+        }
+
+        btnToggleStreaming.addEventListener('click', () => {
+            if (!isStreaming) {
+                startStreaming();
+            } else {
+                stopStreaming();
+            }
+        });
+
+        // 2. Encoder WAV 16-Bit PCM
+        function encodeWAV16Bit(floatSamples, sampleRate) {
+            const buffer = new ArrayBuffer(44 + floatSamples.length * 2);
+            const view = new DataView(buffer);
+
+            function writeString(view, offset, string) {
+                for (let i = 0; i < string.length; i++) {
+                    view.setUint8(offset + i, string.charCodeAt(i));
+                }
+            }
+
+            writeString(view, 0, 'RIFF');
+            view.setUint32(4, 36 + floatSamples.length * 2, true);
+            writeString(view, 8, 'WAVE');
+            writeString(view, 12, 'fmt ');
+            view.setUint32(16, 16, true);
+            view.setUint16(20, 1, true); // PCM
+            view.setUint16(22, 1, true); // Mono
+            view.setUint32(24, sampleRate, true);
+            view.setUint32(28, sampleRate * 2, true);
+            view.setUint16(32, 2, true);
+            view.setUint16(34, 16, true);
+            writeString(view, 36, 'data');
+            view.setUint32(40, floatSamples.length * 2, true);
+
+            let offset = 44;
+            for (let i = 0; i < floatSamples.length; i++) {
+                let s = Math.max(-1, Math.min(1, floatSamples[i]));
+                view.setInt16(offset, s < 0 ? s * 0x8000 : s * 0x7FFF, true);
+                offset += 2;
+            }
+
+            return new Blob([view], { type: 'audio/wav' });
+        }
+
+        // 3. Pengiriman Potongan Audio ke Server Flask
+        async function sendAudioChunkToServer() {
+            if (!isStreaming || chunkBuffer.length === 0) return;
+
+            const buffersToProcess = [...chunkBuffer];
+            chunkBuffer = [];
+
+            let totalLen = buffersToProcess.reduce((sum, b) => sum + b.length, 0);
+            let merged = new Float32Array(totalLen);
+            let offset = 0;
+            for (let b of buffersToProcess) {
+                merged.set(b, offset);
+                offset += b.length;
+            }
+
+            const wavBlob = encodeWAV16Bit(merged, TARGET_SAMPLE_RATE);
+            const formData = new FormData();
+            formData.append('audio', wavBlob, 'chunk.wav');
+
+            try {
+                const response = await fetch('/api/stream_chunk', {
+                    method: 'POST',
+                    body: formData
+                });
+                const res = await response.json();
+                if (res.success) {
+                    updateDashboardUI(res);
+                }
+            } catch (err) {
+                console.warn("Kesalahan pengiriman audio chunk:", err);
+            }
+        }
+
+        // 4. Pembaruan Antarmuka Dashboard Real-Time
+        function updateDashboardUI(data) {
+            const stbl = data.stable_prediction;
+            const inst = data.instant_prediction;
+            const isSawmil = (stbl === 'Sawmill');
+            const conf = data.confidence;
+            const pSaw = data.prob_sawmil;
+            const pNon = data.prob_nonsawmil;
+            const rms = data.rms;
+            const isSilent = data.is_silent;
+
+            // Banner Prediksi Utama
+            stableBanner.className = 'prediction-hero-box ' + (isSawmil ? 'sawmil' : 'nonsawmil');
+            stableIcon.innerHTML = isSawmil ? ICONS.sawmil : ICONS.nonsawmil;
+            stableLabel.innerText = isSawmil ? 'Suara Sawmill (Mesin Gergaji)' : 'Suara Non-Sawmill (Lingkungan)';
+            stableLabel.style.color = isSawmil ? '#fca5a5' : '#6ee7b7';
+            stableSub.innerHTML = `Tingkat Keyakinan: <span>${conf}%</span>`;
+
+            // Badges Prediksi Instan & Kondisi Akustik
+            instantLabel.innerText = inst;
+            instantLabel.style.color = (inst === 'Sawmill') ? '#fca5a5' : '#6ee7b7';
+
+            if (isSilent) {
+                acousticStateLabel.innerText = 'Hening / Senyap';
+                acousticStateLabel.style.color = 'var(--text-muted)';
+            } else {
+                acousticStateLabel.innerText = 'Suara Terdeteksi';
+                acousticStateLabel.style.color = '#38bdf8';
+            }
+
+            // Durasi Sawmill Kontinu & Status WhatsApp
+            if (data.sawmill_duration !== undefined) {
+                sawmillDurationLabel.innerText = `${data.sawmill_duration}s / 10s`;
+                if (data.sawmill_duration >= 10.0) {
+                    sawmillDurationLabel.style.color = '#ef4444';
+                } else if (data.sawmill_duration > 0) {
+                    sawmillDurationLabel.style.color = '#f59e0b';
+                } else {
+                    sawmillDurationLabel.style.color = 'var(--text-primary)';
+                }
+            }
+            if (data.wa_status !== undefined) {
+                waStatusLabel.innerText = data.wa_status;
+            }
+
+            // Pembagian Probabilitas
+            probSawText.innerText = `${pSaw}%`;
+            probNonText.innerText = `${pNon}%`;
+            barSaw.style.width = `${pSaw}%`;
+            barNon.style.width = `${pNon}%`;
+
+            // RMS Meter
+            rmsText.innerText = rms.toFixed(4);
+            const meterPct = Math.min(100, Math.round((rms / 0.15) * 100));
+            rmsBar.style.width = `${meterPct}%`;
+            const meterEl = rmsBar.parentElement;
+            if (meterEl) {
+                meterEl.setAttribute('aria-valuenow', meterPct);
+            }
+
+            // Telemetri Librosa
+            if (data.stats) {
+                valCentroid.innerText = `${data.stats.centroid} Hz`;
+                valRolloff.innerText = `${data.stats.rolloff} Hz`;
+                valZCR.innerText = data.stats.zcr;
+                valBandwidth.innerText = `${data.stats.bandwidth} Hz`;
+            }
+
+            // Data Titik Timeline
+            timelineData.push(pSaw);
+            if (timelineData.length > 30) timelineData.shift();
+            renderTimelineChart();
+        }
+
+        // 5. Render Grafik SVG Timeline Probabilitas
+        function renderTimelineChart() {
+            if (timelineData.length < 2) return;
+            const w = 300;
+            const h = 80;
+            const step = w / (Math.max(timelineData.length - 1, 1));
+
+            let pathD = `M 0 ${h - (timelineData[0] / 100) * h}`;
+            for (let i = 1; i < timelineData.length; i++) {
+                const x = i * step;
+                const y = h - (timelineData[i] / 100) * h;
+                pathD += ` L ${x} ${y}`;
+            }
+
+            chartPath.setAttribute('d', pathD);
+            chartLatestVal.innerText = `${timelineData[timelineData.length - 1]}%`;
+        }
+
+        // 6. Visualisasi Osiloskop
+        function drawVisualizer() {
+            if (!isStreaming) return;
+            requestAnimationFrame(drawVisualizer);
+            if (!analyser) return;
+
+            const bufferLen = analyser.frequencyBinCount;
+            const dataArray = new Uint8Array(bufferLen);
+            analyser.getByteTimeDomainData(dataArray);
+
+            oscCtx.fillStyle = '#0e141f';
+            oscCtx.fillRect(0, 0, oscilloscope.width, oscilloscope.height);
+
+            oscCtx.lineWidth = 2;
+            oscCtx.strokeStyle = (stableBanner.classList.contains('sawmil')) ? '#ef4444' : '#38bdf8';
+            oscCtx.beginPath();
+
+            const sliceWidth = oscilloscope.width / bufferLen;
+            let x = 0;
+
+            for (let i = 0; i < bufferLen; i++) {
+                const v = dataArray[i] / 128.0;
+                const y = (v * oscilloscope.height) / 2;
+
+                if (i === 0) {
+                    oscCtx.moveTo(x, y);
+                } else {
+                    oscCtx.lineTo(x, y);
+                }
+                x += sliceWidth;
+            }
+
+            oscCtx.lineTo(oscilloscope.width, oscilloscope.height / 2);
+            oscCtx.stroke();
+        }
+
+        // 7. Tombol Reset Status
+        btnResetState.addEventListener('click', async () => {
+            try {
+                await fetch('/api/reset', { method: 'POST' });
+                timelineData = [];
+                renderTimelineChart();
+                stableBanner.className = 'prediction-hero-box';
+                stableIcon.innerHTML = ICONS.idle;
+                stableLabel.innerText = 'Menunggu Audio...';
+                stableLabel.style.color = 'var(--text-secondary)';
+                stableSub.innerHTML = 'Tingkat Keyakinan: <span>0.0%</span>';
+                instantLabel.innerText = '-';
+                acousticStateLabel.innerText = 'Hening';
+                sawmillDurationLabel.innerText = '0.0s / 10s';
+                sawmillDurationLabel.style.color = 'var(--text-primary)';
+                waStatusLabel.innerText = 'Siaga';
+                barSaw.style.width = '0%';
+                barNon.style.width = '100%';
+                probSawText.innerText = '0.0%';
+                probNonText.innerText = '100.0%';
+                rmsText.innerText = '0.0000';
+                rmsBar.style.width = '0%';
+                valCentroid.innerText = '- Hz';
+                valRolloff.innerText = '- Hz';
+                valZCR.innerText = '-';
+                valBandwidth.innerText = '- Hz';
+            } catch (e) {
+                console.error("Gagal melakukan reset:", e);
+            }
+        });
+
+        // 8. Tombol Uji Notifikasi WhatsApp
+        btnTestWA.addEventListener('click', async () => {
+            btnTestWALabel.innerText = 'Mengirim...';
+            btnTestWA.disabled = true;
+            try {
+                const resp = await fetch('/api/test_wa', { method: 'POST' });
+                const res = await resp.json();
+                if (res.success) {
+                    waStatusLabel.innerText = 'Tes terkirim';
+                    alert('Notifikasi uji coba berhasil dikirim ke antrean Webhook WhatsApp.');
+                } else {
+                    waStatusLabel.innerText = 'Gagal';
+                    alert('Gagal mengirim: ' + (res.error || 'Terjadi kesalahan'));
+                }
+            } catch (err) {
+                console.error(err);
+                alert('Kesalahan koneksi ke server: ' + err.message);
+            } finally {
+                btnTestWALabel.innerText = 'Tes Notif WA';
+                btnTestWA.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.git
+.gitignore
+.env
+.venv
+env/
+venv/
+*.log
+dataset/
+output/extracted_features.csv
+output/log_peringatan.csv
+test_*.wav
+tmp_*.wav

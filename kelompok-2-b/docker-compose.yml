@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  klasifikasi-suara-air:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: klasifikasi_aliran_air_app
+    ports:
+      - "8025:5000"
+    environment:
+      - PORT=5000
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped

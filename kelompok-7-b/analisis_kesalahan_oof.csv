@@ -1,0 +1,2 @@
+nama_file,group_id,nomor_segment,kelas_aktual,prediksi,fold,centroid_mean,flatness_mean,rolloff_mean,zcr_mean,rms_mean
+audio_kebocoran_gas_02.mp3,bocor_audio_kebocoran_gas,26,bocor,normal,1,612.053116,0.000117,735.180412,0.057041,0.114231

@@ -1,0 +1,289 @@
+filename,actor_id,gender,ground_truth,predicted_emotion,confidence_pct,valence_score,arousal_score,arousal_category,valence_category,recommended_action,inference_latency_ms
+03-01-01-01-01-02-01.wav,1,Male,Neutral,Happy,98.44,0.838,0.7418,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.7082
+03-01-01-01-02-01-01.wav,1,Male,Neutral,Happy,29.99,-0.0704,0.7684,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.6326
+03-01-02-01-01-01-01.wav,1,Male,Calm,Calm,95.39,0.564,-0.57,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.7341
+03-01-02-02-01-01-01.wav,1,Male,Calm,Neutral,67.18,-0.0978,0.0451,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.7452
+03-01-03-01-02-02-01.wav,1,Male,Happy,Neutral,92.78,-0.0414,0.0106,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.9639
+03-01-03-02-01-02-01.wav,1,Male,Happy,Surprised,99.65,0.3508,0.8491,Tinggi (+0.85),Positif - Netral (+0.35),Respons spontan terhadap informasi baru; berikan klarifikasi atau verifikasi lanjutan.,1.104
+03-01-03-02-02-02-01.wav,1,Male,Happy,Neutral,53.85,0.0726,0.278,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.7144
+03-01-04-01-01-02-01.wav,1,Male,Sad,Calm,53.4,0.4304,-0.2045,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.6531
+03-01-04-01-02-02-01.wav,1,Male,Sad,Surprised,77.67,0.2564,0.6643,Tinggi (+0.85),Positif - Netral (+0.35),Respons spontan terhadap informasi baru; berikan klarifikasi atau verifikasi lanjutan.,0.6114
+03-01-04-02-02-02-01.wav,1,Male,Sad,Surprised,75.92,0.2762,0.6547,Tinggi (+0.85),Positif - Netral (+0.35),Respons spontan terhadap informasi baru; berikan klarifikasi atau verifikasi lanjutan.,0.6331
+03-01-05-02-01-01-01.wav,1,Male,Angry,Disgust,93.86,-0.7312,0.1793,Sedang (+0.20),Negatif (-0.80),Evaluasi keluhan produk/layanan; terdeteksi ketidakpuasan atau penolakan kuat.,0.5873
+03-01-05-02-02-02-01.wav,1,Male,Angry,Surprised,99.63,0.3479,0.85,Tinggi (+0.85),Positif - Netral (+0.35),Respons spontan terhadap informasi baru; berikan klarifikasi atau verifikasi lanjutan.,0.5969
+03-01-06-01-02-01-01.wav,1,Male,Fearful,Neutral,88.26,0.0704,-0.0704,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.603
+03-01-06-02-01-02-01.wav,1,Male,Fearful,Surprised,56.37,0.4464,0.229,Tinggi (+0.85),Positif - Netral (+0.35),Respons spontan terhadap informasi baru; berikan klarifikasi atau verifikasi lanjutan.,0.6101
+03-01-06-02-02-02-01.wav,1,Male,Fearful,Surprised,99.84,0.3481,0.85,Tinggi (+0.85),Positif - Netral (+0.35),Respons spontan terhadap informasi baru; berikan klarifikasi atau verifikasi lanjutan.,0.6753
+03-01-07-02-01-01-01.wav,1,Male,Disgust,Disgust,99.46,-0.7969,0.199,Sedang (+0.20),Negatif (-0.80),Evaluasi keluhan produk/layanan; terdeteksi ketidakpuasan atau penolakan kuat.,0.7018
+03-01-08-01-01-02-01.wav,1,Male,Surprised,Surprised,69.55,0.0065,0.6492,Tinggi (+0.85),Positif - Netral (+0.35),Respons spontan terhadap informasi baru; berikan klarifikasi atau verifikasi lanjutan.,0.7636
+03-01-08-02-01-01-01.wav,1,Male,Surprised,Disgust,62.02,-0.1829,0.4043,Sedang (+0.20),Negatif (-0.80),Evaluasi keluhan produk/layanan; terdeteksi ketidakpuasan atau penolakan kuat.,0.8935
+03-01-08-02-02-01-01.wav,1,Male,Surprised,Calm,82.85,0.4323,-0.5473,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.7751
+03-01-02-01-02-02-02.wav,2,Female,Calm,Happy,42.72,0.2678,0.682,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.7477
+03-01-02-02-02-01-02.wav,2,Female,Calm,Sad,74.83,-0.7023,-0.3433,Rendah (-0.65),Negatif (-0.75),"Gunakan pendekatan komunikasi empatik, suportif, dan intonasi tenang.",0.7968
+03-01-04-01-02-02-02.wav,2,Female,Sad,Sad,68.08,-0.3215,-0.6326,Rendah (-0.65),Negatif (-0.75),"Gunakan pendekatan komunikasi empatik, suportif, dan intonasi tenang.",1.0978
+03-01-04-02-02-02-02.wav,2,Female,Sad,Angry,99.53,-0.8493,0.8983,Sangat Tinggi (+0.90),Sangat Negatif (-0.85),PERINGATAN ESKALASI: Segera aktifkan protokol de-eskalasi atau alihkan ke supervisor.,1.4933
+03-01-05-01-01-02-02.wav,2,Female,Angry,Calm,65.03,0.1282,-0.6167,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.7404
+03-01-05-01-02-01-02.wav,2,Female,Angry,Sad,57.3,-0.498,-0.2612,Rendah (-0.65),Negatif (-0.75),"Gunakan pendekatan komunikasi empatik, suportif, dan intonasi tenang.",0.7835
+03-01-05-02-02-02-02.wav,2,Female,Angry,Fearful,85.6,-0.6575,0.754,Tinggi (+0.75),Negatif (-0.70),Berikan kepastian informasi yang jelas dan terstruktur untuk meredakan kepanikan.,0.7213
+03-01-06-02-01-01-02.wav,2,Female,Fearful,Fearful,63.76,-0.3705,0.7187,Tinggi (+0.75),Negatif (-0.70),Berikan kepastian informasi yang jelas dan terstruktur untuk meredakan kepanikan.,0.7088
+03-01-06-02-02-01-02.wav,2,Female,Fearful,Angry,76.87,-0.5324,0.8652,Sangat Tinggi (+0.90),Sangat Negatif (-0.85),PERINGATAN ESKALASI: Segera aktifkan protokol de-eskalasi atau alihkan ke supervisor.,0.6747
+03-01-07-01-01-02-02.wav,2,Female,Disgust,Sad,58.27,-0.7136,-0.3123,Rendah (-0.65),Negatif (-0.75),"Gunakan pendekatan komunikasi empatik, suportif, dan intonasi tenang.",0.6755
+03-01-07-01-02-01-02.wav,2,Female,Disgust,Sad,51.35,-0.0034,0.0249,Rendah (-0.65),Negatif (-0.75),"Gunakan pendekatan komunikasi empatik, suportif, dan intonasi tenang.",0.6354
+03-01-07-02-02-01-02.wav,2,Female,Disgust,Disgust,41.46,-0.1867,0.4605,Sedang (+0.20),Negatif (-0.80),Evaluasi keluhan produk/layanan; terdeteksi ketidakpuasan atau penolakan kuat.,0.6052
+03-01-08-01-02-01-02.wav,2,Female,Surprised,Happy,84.28,0.6105,0.5481,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,1.2836
+03-01-03-01-01-01-03.wav,3,Male,Happy,Calm,98.69,0.5827,-0.5973,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.6828
+03-01-03-02-01-01-03.wav,3,Male,Happy,Happy,99.52,0.8428,0.7491,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.6981
+03-01-03-02-01-02-03.wav,3,Male,Happy,Happy,84.41,0.7687,0.765,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.7187
+03-01-04-02-02-02-03.wav,3,Male,Sad,Sad,64.0,-0.4761,-0.4164,Rendah (-0.65),Negatif (-0.75),"Gunakan pendekatan komunikasi empatik, suportif, dan intonasi tenang.",0.7049
+03-01-06-01-01-01-03.wav,3,Male,Fearful,Disgust,98.23,-0.7924,0.2114,Sedang (+0.20),Negatif (-0.80),Evaluasi keluhan produk/layanan; terdeteksi ketidakpuasan atau penolakan kuat.,0.9489
+03-01-06-01-01-02-03.wav,3,Male,Fearful,Fearful,79.05,-0.6579,0.693,Tinggi (+0.75),Negatif (-0.70),Berikan kepastian informasi yang jelas dan terstruktur untuk meredakan kepanikan.,1.2813
+03-01-08-01-02-02-03.wav,3,Male,Surprised,Surprised,88.96,0.4026,0.8382,Tinggi (+0.85),Positif - Netral (+0.35),Respons spontan terhadap informasi baru; berikan klarifikasi atau verifikasi lanjutan.,0.7569
+03-01-08-02-02-02-03.wav,3,Male,Surprised,Angry,99.64,-0.8441,0.8995,Sangat Tinggi (+0.90),Sangat Negatif (-0.85),PERINGATAN ESKALASI: Segera aktifkan protokol de-eskalasi atau alihkan ke supervisor.,0.709
+03-01-02-01-02-01-04.wav,4,Female,Calm,Neutral,50.01,-0.2008,0.3436,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.6667
+03-01-02-01-02-02-04.wav,4,Female,Calm,Fearful,87.78,-0.5588,0.6976,Tinggi (+0.75),Negatif (-0.70),Berikan kepastian informasi yang jelas dan terstruktur untuk meredakan kepanikan.,0.638
+03-01-03-01-02-01-04.wav,4,Female,Happy,Sad,73.79,-0.5075,-0.5228,Rendah (-0.65),Negatif (-0.75),"Gunakan pendekatan komunikasi empatik, suportif, dan intonasi tenang.",0.6341
+03-01-03-01-02-02-04.wav,4,Female,Happy,Sad,34.57,-0.1519,-0.023,Rendah (-0.65),Negatif (-0.75),"Gunakan pendekatan komunikasi empatik, suportif, dan intonasi tenang.",0.6056
+03-01-03-02-01-02-04.wav,4,Female,Happy,Fearful,81.29,-0.7193,0.6562,Tinggi (+0.75),Negatif (-0.70),Berikan kepastian informasi yang jelas dan terstruktur untuk meredakan kepanikan.,0.5847
+03-01-04-02-01-01-04.wav,4,Female,Sad,Sad,67.86,-0.7317,-0.1994,Rendah (-0.65),Negatif (-0.75),"Gunakan pendekatan komunikasi empatik, suportif, dan intonasi tenang.",1.1558
+03-01-05-01-02-02-04.wav,4,Female,Angry,Calm,78.5,0.3074,-0.4752,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.7922
+03-01-05-02-01-02-04.wav,4,Female,Angry,Sad,63.74,-0.6844,-0.1916,Rendah (-0.65),Negatif (-0.75),"Gunakan pendekatan komunikasi empatik, suportif, dan intonasi tenang.",0.6057
+03-01-06-01-01-01-04.wav,4,Female,Fearful,Sad,93.39,-0.7425,-0.5614,Rendah (-0.65),Negatif (-0.75),"Gunakan pendekatan komunikasi empatik, suportif, dan intonasi tenang.",0.6203
+03-01-06-01-01-02-04.wav,4,Female,Fearful,Fearful,62.16,-0.4729,0.7366,Tinggi (+0.75),Negatif (-0.70),Berikan kepastian informasi yang jelas dan terstruktur untuk meredakan kepanikan.,0.6357
+03-01-06-01-02-02-04.wav,4,Female,Fearful,Sad,58.83,-0.7191,-0.0733,Rendah (-0.65),Negatif (-0.75),"Gunakan pendekatan komunikasi empatik, suportif, dan intonasi tenang.",0.6217
+03-01-07-01-01-02-04.wav,4,Female,Disgust,Sad,94.37,-0.7084,-0.6205,Rendah (-0.65),Negatif (-0.75),"Gunakan pendekatan komunikasi empatik, suportif, dan intonasi tenang.",1.2074
+03-01-07-01-02-01-04.wav,4,Female,Disgust,Fearful,60.48,-0.7047,0.1984,Tinggi (+0.75),Negatif (-0.70),Berikan kepastian informasi yang jelas dan terstruktur untuk meredakan kepanikan.,1.2788
+03-01-08-02-01-01-04.wav,4,Female,Surprised,Fearful,99.93,-0.7,0.7496,Tinggi (+0.75),Negatif (-0.70),Berikan kepastian informasi yang jelas dan terstruktur untuk meredakan kepanikan.,0.7014
+03-01-02-01-01-01-05.wav,5,Male,Calm,Calm,95.8,0.5433,-0.6019,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.6556
+03-01-02-01-02-01-05.wav,5,Male,Calm,Angry,99.43,-0.8483,0.8917,Sangat Tinggi (+0.90),Sangat Negatif (-0.85),PERINGATAN ESKALASI: Segera aktifkan protokol de-eskalasi atau alihkan ke supervisor.,0.6287
+03-01-02-02-01-01-05.wav,5,Male,Calm,Sad,56.04,-0.4147,-0.3688,Rendah (-0.65),Negatif (-0.75),"Gunakan pendekatan komunikasi empatik, suportif, dan intonasi tenang.",0.6322
+03-01-03-01-01-01-05.wav,5,Male,Happy,Neutral,53.12,-0.2167,0.2107,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.6206
+03-01-03-01-02-01-05.wav,5,Male,Happy,Calm,91.37,0.5175,-0.5738,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.6776
+03-01-03-02-01-02-05.wav,5,Male,Happy,Happy,77.0,0.4789,0.6474,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.713
+03-01-04-01-01-01-05.wav,5,Male,Sad,Angry,95.76,-0.8189,0.8497,Sangat Tinggi (+0.90),Sangat Negatif (-0.85),PERINGATAN ESKALASI: Segera aktifkan protokol de-eskalasi atau alihkan ke supervisor.,0.7848
+03-01-04-01-02-01-05.wav,5,Male,Sad,Neutral,52.59,0.1858,-0.189,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.7296
+03-01-05-01-01-01-05.wav,5,Male,Angry,Disgust,88.68,-0.796,0.278,Sedang (+0.20),Negatif (-0.80),Evaluasi keluhan produk/layanan; terdeteksi ketidakpuasan atau penolakan kuat.,0.7522
+03-01-05-01-02-01-05.wav,5,Male,Angry,Neutral,47.87,-0.3265,0.3412,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.7478
+03-01-06-01-01-02-05.wav,5,Male,Fearful,Calm,41.02,-0.1853,-0.3569,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.7185
+03-01-06-02-01-02-05.wav,5,Male,Fearful,Surprised,95.91,0.3704,0.8459,Tinggi (+0.85),Positif - Netral (+0.35),Respons spontan terhadap informasi baru; berikan klarifikasi atau verifikasi lanjutan.,0.698
+03-01-06-02-02-01-05.wav,5,Male,Fearful,Surprised,99.63,0.3507,0.8447,Tinggi (+0.85),Positif - Netral (+0.35),Respons spontan terhadap informasi baru; berikan klarifikasi atau verifikasi lanjutan.,0.7162
+03-01-07-01-01-01-05.wav,5,Male,Disgust,Calm,99.87,0.5992,-0.5993,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,1.0925
+03-01-07-01-02-02-05.wav,5,Male,Disgust,Calm,93.8,0.5164,-0.603,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,1.1062
+03-01-07-02-01-02-05.wav,5,Male,Disgust,Calm,79.75,0.3876,-0.4694,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.9328
+03-01-08-01-02-02-05.wav,5,Male,Surprised,Calm,72.44,0.3671,-0.493,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.7478
+03-01-08-02-01-01-05.wav,5,Male,Surprised,Disgust,39.98,-0.1936,-0.0123,Sedang (+0.20),Negatif (-0.80),Evaluasi keluhan produk/layanan; terdeteksi ketidakpuasan atau penolakan kuat.,0.7508
+03-01-01-01-01-01-06.wav,6,Female,Neutral,Surprised,100.0,0.35,0.85,Tinggi (+0.85),Positif - Netral (+0.35),Respons spontan terhadap informasi baru; berikan klarifikasi atau verifikasi lanjutan.,0.8665
+03-01-01-01-01-02-06.wav,6,Female,Neutral,Surprised,69.54,0.0534,0.3988,Tinggi (+0.85),Positif - Netral (+0.35),Respons spontan terhadap informasi baru; berikan klarifikasi atau verifikasi lanjutan.,0.8126
+03-01-01-01-02-02-06.wav,6,Female,Neutral,Calm,37.51,0.0206,-0.3916,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.7886
+03-01-02-01-01-01-06.wav,6,Female,Calm,Calm,96.52,0.5747,-0.5809,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.7885
+03-01-02-01-01-02-06.wav,6,Female,Calm,Surprised,75.56,0.2643,0.6415,Tinggi (+0.85),Positif - Netral (+0.35),Respons spontan terhadap informasi baru; berikan klarifikasi atau verifikasi lanjutan.,0.7246
+03-01-02-02-02-02-06.wav,6,Female,Calm,Angry,99.97,-0.8497,0.8999,Sangat Tinggi (+0.90),Sangat Negatif (-0.85),PERINGATAN ESKALASI: Segera aktifkan protokol de-eskalasi atau alihkan ke supervisor.,0.7203
+03-01-03-02-01-02-06.wav,6,Female,Happy,Angry,100.0,-0.85,0.9,Sangat Tinggi (+0.90),Sangat Negatif (-0.85),PERINGATAN ESKALASI: Segera aktifkan protokol de-eskalasi atau alihkan ke supervisor.,0.7225
+03-01-03-02-02-02-06.wav,6,Female,Happy,Happy,99.89,0.8484,0.7501,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.6993
+03-01-04-01-02-01-06.wav,6,Female,Sad,Calm,77.31,0.2865,-0.4202,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.6701
+03-01-04-01-02-02-06.wav,6,Female,Sad,Calm,88.27,0.4682,-0.5782,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,1.3597
+03-01-04-02-01-02-06.wav,6,Female,Sad,Calm,100.0,0.6,-0.6,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,1.2483
+03-01-05-01-01-01-06.wav,6,Female,Angry,Disgust,36.23,-0.6839,0.1996,Sedang (+0.20),Negatif (-0.80),Evaluasi keluhan produk/layanan; terdeteksi ketidakpuasan atau penolakan kuat.,0.6371
+03-01-05-02-01-02-06.wav,6,Female,Angry,Neutral,66.24,0.268,0.2555,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.6632
+03-01-05-02-02-01-06.wav,6,Female,Angry,Fearful,92.06,-0.5805,0.7504,Tinggi (+0.75),Negatif (-0.70),Berikan kepastian informasi yang jelas dan terstruktur untuk meredakan kepanikan.,0.6214
+03-01-06-01-01-02-06.wav,6,Female,Fearful,Calm,91.31,0.5763,-0.4764,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.6077
+03-01-06-01-02-02-06.wav,6,Female,Fearful,Calm,99.83,0.5979,-0.5999,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.5844
+03-01-07-01-02-01-06.wav,6,Female,Disgust,Disgust,97.5,-0.7729,0.2004,Sedang (+0.20),Negatif (-0.80),Evaluasi keluhan produk/layanan; terdeteksi ketidakpuasan atau penolakan kuat.,0.5792
+03-01-07-02-02-01-06.wav,6,Female,Disgust,Happy,63.42,0.2503,0.5516,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.5986
+03-01-08-02-02-01-06.wav,6,Female,Surprised,Angry,94.66,-0.7885,0.8862,Sangat Tinggi (+0.90),Sangat Negatif (-0.85),PERINGATAN ESKALASI: Segera aktifkan protokol de-eskalasi atau alihkan ke supervisor.,0.5831
+03-01-02-01-02-02-07.wav,7,Male,Calm,Calm,96.99,0.5726,-0.5889,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.6077
+03-01-03-01-01-01-07.wav,7,Male,Happy,Surprised,79.47,0.4154,0.7998,Tinggi (+0.85),Positif - Netral (+0.35),Respons spontan terhadap informasi baru; berikan klarifikasi atau verifikasi lanjutan.,0.5816
+03-01-03-01-02-01-07.wav,7,Male,Happy,Happy,99.97,0.8497,0.7498,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.5838
+03-01-05-02-02-02-07.wav,7,Male,Angry,Neutral,99.35,0.0008,-0.0035,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.5855
+03-01-08-02-01-01-07.wav,7,Male,Surprised,Calm,98.64,0.5816,-0.6005,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.5905
+03-01-08-02-02-01-07.wav,7,Male,Surprised,Happy,99.99,0.8499,0.75,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.6316
+03-01-01-01-01-02-08.wav,8,Female,Neutral,Happy,68.09,0.6246,0.4418,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.7656
+03-01-02-02-01-02-08.wav,8,Female,Calm,Calm,80.78,0.3416,-0.6086,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.6257
+03-01-02-02-02-01-08.wav,8,Female,Calm,Neutral,76.19,0.0916,-0.0649,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,1.5032
+03-01-03-02-01-01-08.wav,8,Female,Happy,Neutral,99.83,0.001,-0.0004,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.7442
+03-01-05-01-02-02-08.wav,8,Female,Angry,Sad,93.61,-0.6804,-0.6301,Rendah (-0.65),Negatif (-0.75),"Gunakan pendekatan komunikasi empatik, suportif, dan intonasi tenang.",0.6545
+03-01-06-01-02-01-08.wav,8,Female,Fearful,Calm,100.0,0.6,-0.6,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.6199
+03-01-06-02-02-02-08.wav,8,Female,Fearful,Neutral,99.35,-0.0046,-0.0042,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.6131
+03-01-08-01-02-01-08.wav,8,Female,Surprised,Neutral,66.47,0.071,0.0675,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.6119
+03-01-01-01-01-01-09.wav,9,Male,Neutral,Sad,59.73,-0.2244,-0.6117,Rendah (-0.65),Negatif (-0.75),"Gunakan pendekatan komunikasi empatik, suportif, dan intonasi tenang.",0.6175
+03-01-02-02-02-02-09.wav,9,Male,Calm,Calm,92.99,0.5362,-0.5495,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.6528
+03-01-04-01-01-01-09.wav,9,Male,Sad,Calm,66.01,0.1547,-0.2879,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.7687
+03-01-04-01-02-01-09.wav,9,Male,Sad,Calm,70.29,0.2283,-0.3936,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.7129
+03-01-04-02-01-01-09.wav,9,Male,Sad,Angry,94.61,-0.8386,0.8646,Sangat Tinggi (+0.90),Sangat Negatif (-0.85),PERINGATAN ESKALASI: Segera aktifkan protokol de-eskalasi atau alihkan ke supervisor.,0.6932
+03-01-05-01-01-01-09.wav,9,Male,Angry,Disgust,36.76,-0.1459,0.2996,Sedang (+0.20),Negatif (-0.80),Evaluasi keluhan produk/layanan; terdeteksi ketidakpuasan atau penolakan kuat.,0.718
+03-01-06-01-02-01-09.wav,9,Male,Fearful,Neutral,85.89,-0.0841,-0.0881,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.6944
+03-01-06-01-02-02-09.wav,9,Male,Fearful,Neutral,77.28,-0.0517,-0.1288,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.7109
+03-01-07-01-01-02-09.wav,9,Male,Disgust,Happy,98.6,0.8419,0.7484,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.9914
+03-01-07-01-02-02-09.wav,9,Male,Disgust,Neutral,41.36,0.1608,0.3377,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.6977
+03-01-07-02-01-01-09.wav,9,Male,Disgust,Happy,84.99,0.605,0.6763,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,1.8149
+03-01-01-01-01-02-10.wav,10,Female,Neutral,Calm,99.8,0.5972,-0.5989,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,1.1812
+03-01-04-01-01-02-10.wav,10,Female,Sad,Calm,96.96,0.5799,-0.5829,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.8078
+03-01-04-02-02-02-10.wav,10,Female,Sad,Neutral,83.84,0.0233,-0.0102,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.7645
+03-01-07-01-01-02-10.wav,10,Female,Disgust,Neutral,96.98,0.0162,-0.017,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.7866
+03-01-07-01-02-02-10.wav,10,Female,Disgust,Calm,100.0,0.6,-0.6,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.7401
+03-01-08-01-01-02-10.wav,10,Female,Surprised,Calm,57.29,0.2711,-0.3257,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.753
+03-01-02-01-01-01-11.wav,11,Male,Calm,Neutral,47.05,0.3728,0.1395,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.709
+03-01-04-01-01-01-11.wav,11,Male,Sad,Happy,64.79,0.4139,0.3289,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.7141
+03-01-04-01-02-02-11.wav,11,Male,Sad,Happy,63.07,0.2895,0.7295,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.6561
+03-01-05-01-01-02-11.wav,11,Male,Angry,Calm,97.93,0.5868,-0.5882,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.6749
+03-01-06-01-02-01-11.wav,11,Male,Fearful,Happy,76.46,0.5228,0.6866,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.6143
+03-01-06-02-01-02-11.wav,11,Male,Fearful,Happy,97.56,0.8176,0.7399,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.9251
+03-01-07-02-01-02-11.wav,11,Male,Disgust,Angry,61.15,-0.5085,0.5609,Sangat Tinggi (+0.90),Sangat Negatif (-0.85),PERINGATAN ESKALASI: Segera aktifkan protokol de-eskalasi atau alihkan ke supervisor.,0.9345
+03-01-08-01-01-01-11.wav,11,Male,Surprised,Happy,96.43,0.807,0.7308,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,1.0591
+03-01-08-01-01-02-11.wav,11,Male,Surprised,Calm,91.07,0.5713,-0.4973,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,1.2405
+03-01-08-02-01-01-11.wav,11,Male,Surprised,Happy,97.56,0.8167,0.729,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.6296
+03-01-08-02-01-02-11.wav,11,Male,Surprised,Fearful,84.32,-0.4935,0.7231,Tinggi (+0.75),Negatif (-0.70),Berikan kepastian informasi yang jelas dan terstruktur untuk meredakan kepanikan.,0.6457
+03-01-02-01-01-02-12.wav,12,Female,Calm,Calm,99.98,0.5998,-0.6,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.6101
+03-01-02-02-02-02-12.wav,12,Female,Calm,Happy,83.74,0.7897,0.5357,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.623
+03-01-04-01-01-02-12.wav,12,Female,Sad,Disgust,43.65,-0.4217,0.1804,Sedang (+0.20),Negatif (-0.80),Evaluasi keluhan produk/layanan; terdeteksi ketidakpuasan atau penolakan kuat.,0.5972
+03-01-04-02-01-01-12.wav,12,Female,Sad,Disgust,80.02,-0.7595,0.3343,Sedang (+0.20),Negatif (-0.80),Evaluasi keluhan produk/layanan; terdeteksi ketidakpuasan atau penolakan kuat.,0.5804
+03-01-04-02-02-01-12.wav,12,Female,Sad,Sad,99.98,-0.7498,-0.65,Rendah (-0.65),Negatif (-0.75),"Gunakan pendekatan komunikasi empatik, suportif, dan intonasi tenang.",0.5861
+03-01-05-01-01-02-12.wav,12,Female,Angry,Calm,61.52,0.0875,-0.6023,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.5804
+03-01-05-01-02-02-12.wav,12,Female,Angry,Calm,84.31,0.4787,-0.5255,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.6092
+03-01-07-02-02-01-12.wav,12,Female,Disgust,Neutral,99.94,0.0003,0.0001,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.5844
+03-01-02-01-02-01-13.wav,13,Male,Calm,Calm,62.83,0.6184,-0.1165,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.5827
+03-01-02-02-01-01-13.wav,13,Male,Calm,Surprised,80.9,0.3674,0.6556,Tinggi (+0.85),Positif - Netral (+0.35),Respons spontan terhadap informasi baru; berikan klarifikasi atau verifikasi lanjutan.,0.5957
+03-01-02-02-02-01-13.wav,13,Male,Calm,Calm,38.45,0.3585,-0.0067,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,1.0388
+03-01-02-02-02-02-13.wav,13,Male,Calm,Surprised,99.56,0.3514,0.8484,Tinggi (+0.85),Positif - Netral (+0.35),Respons spontan terhadap informasi baru; berikan klarifikasi atau verifikasi lanjutan.,0.722
+03-01-03-01-01-01-13.wav,13,Male,Happy,Calm,97.26,0.5838,-0.5833,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.7311
+03-01-04-02-01-01-13.wav,13,Male,Sad,Happy,76.57,0.6852,0.6866,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.6261
+03-01-05-02-01-01-13.wav,13,Male,Angry,Disgust,92.53,-0.7704,0.2268,Sedang (+0.20),Negatif (-0.80),Evaluasi keluhan produk/layanan; terdeteksi ketidakpuasan atau penolakan kuat.,1.2164
+03-01-05-02-01-02-13.wav,13,Male,Angry,Happy,99.5,0.8432,0.7469,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.6215
+03-01-06-02-01-01-13.wav,13,Male,Fearful,Neutral,62.59,-0.036,-0.2323,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.6565
+03-01-07-01-01-01-13.wav,13,Male,Disgust,Happy,89.61,0.7979,0.7603,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.611
+03-01-07-02-02-02-13.wav,13,Male,Disgust,Sad,78.07,-0.4587,-0.6331,Rendah (-0.65),Negatif (-0.75),"Gunakan pendekatan komunikasi empatik, suportif, dan intonasi tenang.",0.6286
+03-01-08-01-02-01-13.wav,13,Male,Surprised,Calm,86.51,0.415,-0.5026,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.5798
+03-01-01-01-01-01-14.wav,14,Female,Neutral,Angry,81.74,-0.8211,0.7223,Sangat Tinggi (+0.90),Sangat Negatif (-0.85),PERINGATAN ESKALASI: Segera aktifkan protokol de-eskalasi atau alihkan ke supervisor.,0.5796
+03-01-03-02-01-01-14.wav,14,Female,Happy,Happy,90.46,0.7691,0.6824,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.601
+03-01-03-02-02-01-14.wav,14,Female,Happy,Fearful,36.93,-0.5882,0.5183,Tinggi (+0.75),Negatif (-0.70),Berikan kepastian informasi yang jelas dan terstruktur untuk meredakan kepanikan.,0.5842
+03-01-05-02-01-01-14.wav,14,Female,Angry,Surprised,79.69,0.2007,0.823,Tinggi (+0.85),Positif - Netral (+0.35),Respons spontan terhadap informasi baru; berikan klarifikasi atau verifikasi lanjutan.,0.5984
+03-01-06-01-02-01-14.wav,14,Female,Fearful,Happy,40.47,0.0424,0.7469,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.5805
+03-01-06-02-01-01-14.wav,14,Female,Fearful,Happy,45.63,0.2228,0.7814,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.795
+03-01-06-02-02-01-14.wav,14,Female,Fearful,Happy,69.37,0.337,0.7883,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.6543
+03-01-07-02-01-01-14.wav,14,Female,Disgust,Angry,99.85,-0.8483,0.8999,Sangat Tinggi (+0.90),Sangat Negatif (-0.85),PERINGATAN ESKALASI: Segera aktifkan protokol de-eskalasi atau alihkan ke supervisor.,0.6419
+03-01-08-01-02-02-14.wav,14,Female,Surprised,Fearful,85.78,-0.628,0.6296,Tinggi (+0.75),Negatif (-0.70),Berikan kepastian informasi yang jelas dan terstruktur untuk meredakan kepanikan.,0.619
+03-01-08-02-02-02-14.wav,14,Female,Surprised,Happy,69.83,0.4825,0.7588,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.6054
+03-01-01-01-02-02-15.wav,15,Male,Neutral,Surprised,87.7,0.3227,0.7389,Tinggi (+0.85),Positif - Netral (+0.35),Respons spontan terhadap informasi baru; berikan klarifikasi atau verifikasi lanjutan.,1.4305
+03-01-03-01-02-01-15.wav,15,Male,Happy,Happy,73.66,0.6483,0.5955,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,1.3859
+03-01-03-02-01-01-15.wav,15,Male,Happy,Neutral,99.98,-0.0,-0.0,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,1.8188
+03-01-03-02-02-01-15.wav,15,Male,Happy,Calm,79.76,0.4728,-0.4831,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.6348
+03-01-05-01-02-01-15.wav,15,Male,Angry,Neutral,99.36,-0.0044,-0.0034,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.6415
+03-01-05-02-01-01-15.wav,15,Male,Angry,Neutral,96.04,-0.0171,0.0057,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.6098
+03-01-05-02-01-02-15.wav,15,Male,Angry,Neutral,99.81,-0.0015,-0.0001,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.6019
+03-01-05-02-02-01-15.wav,15,Male,Angry,Neutral,98.85,0.0097,0.0086,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.6117
+03-01-06-01-01-01-15.wav,15,Male,Fearful,Neutral,99.93,0.0004,-0.0004,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.5831
+03-01-06-01-02-01-15.wav,15,Male,Fearful,Neutral,86.01,-0.0866,0.036,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.9442
+03-01-06-02-02-01-15.wav,15,Male,Fearful,Neutral,99.56,-0.0032,-0.0028,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.7747
+03-01-07-01-02-01-15.wav,15,Male,Disgust,Calm,99.99,0.6,-0.6,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.6095
+03-01-07-02-01-02-15.wav,15,Male,Disgust,Neutral,96.83,0.0202,-0.006,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.6146
+03-01-08-01-01-02-15.wav,15,Male,Surprised,Disgust,86.22,-0.6807,0.2191,Sedang (+0.20),Negatif (-0.80),Evaluasi keluhan produk/layanan; terdeteksi ketidakpuasan atau penolakan kuat.,0.5853
+03-01-08-02-02-01-15.wav,15,Male,Surprised,Neutral,93.31,0.0406,0.0534,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,1.2656
+03-01-08-02-02-02-15.wav,15,Male,Surprised,Neutral,95.51,-0.031,0.0061,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,1.0844
+03-01-01-01-01-01-16.wav,16,Female,Neutral,Disgust,82.96,-0.7502,0.3152,Sedang (+0.20),Negatif (-0.80),Evaluasi keluhan produk/layanan; terdeteksi ketidakpuasan atau penolakan kuat.,0.7225
+03-01-01-01-02-02-16.wav,16,Female,Neutral,Sad,83.48,-0.6167,-0.5449,Rendah (-0.65),Negatif (-0.75),"Gunakan pendekatan komunikasi empatik, suportif, dan intonasi tenang.",0.6157
+03-01-02-01-02-01-16.wav,16,Female,Calm,Angry,99.63,-0.8473,0.8968,Sangat Tinggi (+0.90),Sangat Negatif (-0.85),PERINGATAN ESKALASI: Segera aktifkan protokol de-eskalasi atau alihkan ke supervisor.,1.1896
+03-01-02-01-02-02-16.wav,16,Female,Calm,Angry,74.02,-0.6582,0.6478,Sangat Tinggi (+0.90),Sangat Negatif (-0.85),PERINGATAN ESKALASI: Segera aktifkan protokol de-eskalasi atau alihkan ke supervisor.,0.5856
+03-01-03-02-02-02-16.wav,16,Female,Happy,Sad,92.34,-0.6789,-0.6139,Rendah (-0.65),Negatif (-0.75),"Gunakan pendekatan komunikasi empatik, suportif, dan intonasi tenang.",0.5913
+03-01-04-01-02-02-16.wav,16,Female,Sad,Happy,87.65,0.7682,0.7193,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.5908
+03-01-04-02-02-02-16.wav,16,Female,Sad,Neutral,98.67,0.0101,0.0095,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.5846
+03-01-05-01-01-02-16.wav,16,Female,Angry,Calm,47.72,0.5218,-0.0735,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.6037
+03-01-06-01-01-01-16.wav,16,Female,Fearful,Neutral,86.79,0.0534,-0.053,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.7328
+03-01-06-02-01-02-16.wav,16,Female,Fearful,Happy,100.0,0.85,0.75,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.8615
+03-01-07-01-02-01-16.wav,16,Female,Disgust,Angry,99.69,-0.8498,0.8979,Sangat Tinggi (+0.90),Sangat Negatif (-0.85),PERINGATAN ESKALASI: Segera aktifkan protokol de-eskalasi atau alihkan ke supervisor.,1.0152
+03-01-08-02-01-01-16.wav,16,Female,Surprised,Neutral,97.73,0.0128,-0.0125,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.6651
+03-01-08-02-02-02-16.wav,16,Female,Surprised,Angry,54.29,-0.8058,0.5213,Sangat Tinggi (+0.90),Sangat Negatif (-0.85),PERINGATAN ESKALASI: Segera aktifkan protokol de-eskalasi atau alihkan ke supervisor.,0.5873
+03-01-02-01-02-01-17.wav,17,Male,Calm,Angry,56.51,-0.4284,0.5546,Sangat Tinggi (+0.90),Sangat Negatif (-0.85),PERINGATAN ESKALASI: Segera aktifkan protokol de-eskalasi atau alihkan ke supervisor.,0.9769
+03-01-02-02-02-01-17.wav,17,Male,Calm,Happy,76.38,0.6345,0.5923,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.9475
+03-01-02-02-02-02-17.wav,17,Male,Calm,Happy,40.54,0.5045,0.1441,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.7008
+03-01-03-02-02-01-17.wav,17,Male,Happy,Neutral,78.4,-0.1375,-0.1145,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.6127
+03-01-03-02-02-02-17.wav,17,Male,Happy,Calm,53.92,0.0693,-0.4542,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.6339
+03-01-04-01-01-02-17.wav,17,Male,Sad,Surprised,99.74,0.3495,0.8481,Tinggi (+0.85),Positif - Netral (+0.35),Respons spontan terhadap informasi baru; berikan klarifikasi atau verifikasi lanjutan.,0.5965
+03-01-05-02-01-02-17.wav,17,Male,Angry,Neutral,90.32,-0.0336,-0.0597,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.5905
+03-01-05-02-02-02-17.wav,17,Male,Angry,Neutral,77.72,0.1389,-0.1008,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.586
+03-01-07-01-01-02-17.wav,17,Male,Disgust,Neutral,87.22,-0.0909,-0.0806,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.5779
+03-01-07-02-02-02-17.wav,17,Male,Disgust,Calm,88.31,0.4943,-0.5607,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.5973
+03-01-08-01-01-01-17.wav,17,Male,Surprised,Calm,96.88,0.5632,-0.597,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.6085
+03-01-08-01-01-02-17.wav,17,Male,Surprised,Neutral,75.62,0.14,-0.1465,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.6821
+03-01-02-01-01-01-18.wav,18,Female,Calm,Happy,53.61,0.1287,0.134,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.6851
+03-01-02-02-01-02-18.wav,18,Female,Calm,Sad,99.03,-0.7359,-0.6372,Rendah (-0.65),Negatif (-0.75),"Gunakan pendekatan komunikasi empatik, suportif, dan intonasi tenang.",0.7512
+03-01-03-02-01-02-18.wav,18,Female,Happy,Fearful,97.41,-0.6611,0.7489,Tinggi (+0.75),Negatif (-0.70),Berikan kepastian informasi yang jelas dan terstruktur untuk meredakan kepanikan.,0.7236
+03-01-04-01-02-02-18.wav,18,Female,Sad,Happy,99.03,0.8346,0.7503,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.7214
+03-01-04-02-01-01-18.wav,18,Female,Sad,Disgust,99.4,-0.793,0.2032,Sedang (+0.20),Negatif (-0.80),Evaluasi keluhan produk/layanan; terdeteksi ketidakpuasan atau penolakan kuat.,0.6771
+03-01-05-02-01-01-18.wav,18,Female,Angry,Disgust,100.0,-0.8,0.2,Sedang (+0.20),Negatif (-0.80),Evaluasi keluhan produk/layanan; terdeteksi ketidakpuasan atau penolakan kuat.,0.9438
+03-01-06-01-01-02-18.wav,18,Female,Fearful,Happy,84.77,0.5996,0.7592,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,1.1394
+03-01-07-02-01-01-18.wav,18,Female,Disgust,Neutral,87.17,0.0058,0.0359,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.6624
+03-01-08-01-01-01-18.wav,18,Female,Surprised,Angry,97.57,-0.8297,0.8727,Sangat Tinggi (+0.90),Sangat Negatif (-0.85),PERINGATAN ESKALASI: Segera aktifkan protokol de-eskalasi atau alihkan ke supervisor.,0.7029
+03-01-08-01-02-02-18.wav,18,Female,Surprised,Sad,98.85,-0.7369,-0.6431,Rendah (-0.65),Negatif (-0.75),"Gunakan pendekatan komunikasi empatik, suportif, dan intonasi tenang.",0.7201
+03-01-08-02-01-02-18.wav,18,Female,Surprised,Happy,99.58,0.8432,0.7506,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.7537
+03-01-01-01-02-01-19.wav,19,Male,Neutral,Calm,94.29,0.5657,-0.5657,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.7211
+03-01-02-02-02-01-19.wav,19,Male,Calm,Surprised,99.9,0.3493,0.8495,Tinggi (+0.85),Positif - Netral (+0.35),Respons spontan terhadap informasi baru; berikan klarifikasi atau verifikasi lanjutan.,0.8238
+03-01-03-01-01-01-19.wav,19,Male,Happy,Disgust,87.63,-0.8058,0.2858,Sedang (+0.20),Negatif (-0.80),Evaluasi keluhan produk/layanan; terdeteksi ketidakpuasan atau penolakan kuat.,1.4429
+03-01-03-01-02-01-19.wav,19,Male,Happy,Disgust,98.22,-0.7783,0.2108,Sedang (+0.20),Negatif (-0.80),Evaluasi keluhan produk/layanan; terdeteksi ketidakpuasan atau penolakan kuat.,0.7069
+03-01-03-01-02-02-19.wav,19,Male,Happy,Disgust,97.84,-0.7906,0.1826,Sedang (+0.20),Negatif (-0.80),Evaluasi keluhan produk/layanan; terdeteksi ketidakpuasan atau penolakan kuat.,0.7393
+03-01-04-02-02-02-19.wav,19,Male,Sad,Sad,96.18,-0.7067,-0.6398,Rendah (-0.65),Negatif (-0.75),"Gunakan pendekatan komunikasi empatik, suportif, dan intonasi tenang.",0.7238
+03-01-05-01-01-01-19.wav,19,Male,Angry,Calm,99.95,0.5997,-0.5997,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.722
+03-01-05-01-01-02-19.wav,19,Male,Angry,Calm,93.03,0.551,-0.5615,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.7241
+03-01-05-02-02-02-19.wav,19,Male,Angry,Angry,100.0,-0.85,0.9,Sangat Tinggi (+0.90),Sangat Negatif (-0.85),PERINGATAN ESKALASI: Segera aktifkan protokol de-eskalasi atau alihkan ke supervisor.,0.6894
+03-01-06-01-01-01-19.wav,19,Male,Fearful,Disgust,73.65,-0.7833,0.3818,Sedang (+0.20),Negatif (-0.80),Evaluasi keluhan produk/layanan; terdeteksi ketidakpuasan atau penolakan kuat.,0.9
+03-01-06-01-01-02-19.wav,19,Male,Fearful,Surprised,77.21,0.2428,0.6319,Tinggi (+0.85),Positif - Netral (+0.35),Respons spontan terhadap informasi baru; berikan klarifikasi atau verifikasi lanjutan.,1.4046
+03-01-06-02-02-01-19.wav,19,Male,Fearful,Angry,93.18,-0.8449,0.8532,Sangat Tinggi (+0.90),Sangat Negatif (-0.85),PERINGATAN ESKALASI: Segera aktifkan protokol de-eskalasi atau alihkan ke supervisor.,0.7563
+03-01-07-01-02-02-19.wav,19,Male,Disgust,Angry,99.99,-0.8498,0.9,Sangat Tinggi (+0.90),Sangat Negatif (-0.85),PERINGATAN ESKALASI: Segera aktifkan protokol de-eskalasi atau alihkan ke supervisor.,0.7651
+03-01-08-01-02-01-19.wav,19,Male,Surprised,Disgust,98.52,-0.781,0.1891,Sedang (+0.20),Negatif (-0.80),Evaluasi keluhan produk/layanan; terdeteksi ketidakpuasan atau penolakan kuat.,0.8477
+03-01-08-01-02-02-19.wav,19,Male,Surprised,Disgust,28.98,0.0045,0.2248,Sedang (+0.20),Negatif (-0.80),Evaluasi keluhan produk/layanan; terdeteksi ketidakpuasan atau penolakan kuat.,0.765
+03-01-08-02-02-01-19.wav,19,Male,Surprised,Disgust,99.69,-0.7988,0.1996,Sedang (+0.20),Negatif (-0.80),Evaluasi keluhan produk/layanan; terdeteksi ketidakpuasan atau penolakan kuat.,0.7792
+03-01-02-02-01-01-20.wav,20,Female,Calm,Sad,94.12,-0.7519,-0.5876,Rendah (-0.65),Negatif (-0.75),"Gunakan pendekatan komunikasi empatik, suportif, dan intonasi tenang.",0.7229
+03-01-03-02-01-02-20.wav,20,Female,Happy,Fearful,94.5,-0.6808,0.6938,Tinggi (+0.75),Negatif (-0.70),Berikan kepastian informasi yang jelas dan terstruktur untuk meredakan kepanikan.,0.7154
+03-01-04-01-01-02-20.wav,20,Female,Sad,Fearful,50.93,-0.4418,0.394,Tinggi (+0.75),Negatif (-0.70),Berikan kepastian informasi yang jelas dan terstruktur untuk meredakan kepanikan.,0.6663
+03-01-04-02-02-02-20.wav,20,Female,Sad,Sad,61.63,-0.3986,-0.3287,Rendah (-0.65),Negatif (-0.75),"Gunakan pendekatan komunikasi empatik, suportif, dan intonasi tenang.",0.6619
+03-01-05-01-01-01-20.wav,20,Female,Angry,Calm,41.23,-0.1703,-0.216,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.619
+03-01-05-01-02-01-20.wav,20,Female,Angry,Sad,84.38,-0.6813,-0.4761,Rendah (-0.65),Negatif (-0.75),"Gunakan pendekatan komunikasi empatik, suportif, dan intonasi tenang.",0.6165
+03-01-05-01-02-02-20.wav,20,Female,Angry,Calm,30.7,0.0232,-0.1124,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.5814
+03-01-05-02-01-01-20.wav,20,Female,Angry,Calm,96.75,0.5627,-0.5918,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.584
+03-01-07-01-02-01-20.wav,20,Female,Disgust,Surprised,98.72,0.3501,0.8468,Tinggi (+0.85),Positif - Netral (+0.35),Respons spontan terhadap informasi baru; berikan klarifikasi atau verifikasi lanjutan.,1.1579
+03-01-07-02-01-01-20.wav,20,Female,Disgust,Fearful,40.91,-0.412,0.3112,Tinggi (+0.75),Negatif (-0.70),Berikan kepastian informasi yang jelas dan terstruktur untuk meredakan kepanikan.,0.8586
+03-01-07-02-02-01-20.wav,20,Female,Disgust,Calm,85.35,0.413,-0.5895,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.9201
+03-01-08-02-01-02-20.wav,20,Female,Surprised,Angry,98.96,-0.8411,0.8962,Sangat Tinggi (+0.90),Sangat Negatif (-0.85),PERINGATAN ESKALASI: Segera aktifkan protokol de-eskalasi atau alihkan ke supervisor.,0.6094
+03-01-01-01-02-01-21.wav,21,Male,Neutral,Surprised,99.72,0.3471,0.8489,Tinggi (+0.85),Positif - Netral (+0.35),Respons spontan terhadap informasi baru; berikan klarifikasi atau verifikasi lanjutan.,0.6423
+03-01-02-01-01-02-21.wav,21,Male,Calm,Angry,95.69,-0.7985,0.8943,Sangat Tinggi (+0.90),Sangat Negatif (-0.85),PERINGATAN ESKALASI: Segera aktifkan protokol de-eskalasi atau alihkan ke supervisor.,0.6315
+03-01-02-01-02-01-21.wav,21,Male,Calm,Angry,99.33,-0.8493,0.8944,Sangat Tinggi (+0.90),Sangat Negatif (-0.85),PERINGATAN ESKALASI: Segera aktifkan protokol de-eskalasi atau alihkan ke supervisor.,0.7174
+03-01-04-01-01-01-21.wav,21,Male,Sad,Angry,84.14,-0.7153,0.8141,Sangat Tinggi (+0.90),Sangat Negatif (-0.85),PERINGATAN ESKALASI: Segera aktifkan protokol de-eskalasi atau alihkan ke supervisor.,0.7421
+03-01-04-01-02-01-21.wav,21,Male,Sad,Disgust,27.57,-0.4915,0.0941,Sedang (+0.20),Negatif (-0.80),Evaluasi keluhan produk/layanan; terdeteksi ketidakpuasan atau penolakan kuat.,0.789
+03-01-04-02-02-02-21.wav,21,Male,Sad,Angry,78.86,-0.7858,0.755,Sangat Tinggi (+0.90),Sangat Negatif (-0.85),PERINGATAN ESKALASI: Segera aktifkan protokol de-eskalasi atau alihkan ke supervisor.,0.7271
+03-01-05-01-01-01-21.wav,21,Male,Angry,Angry,99.72,-0.8468,0.8996,Sangat Tinggi (+0.90),Sangat Negatif (-0.85),PERINGATAN ESKALASI: Segera aktifkan protokol de-eskalasi atau alihkan ke supervisor.,0.7559
+03-01-05-01-02-02-21.wav,21,Male,Angry,Fearful,79.09,-0.5525,0.6551,Tinggi (+0.75),Negatif (-0.70),Berikan kepastian informasi yang jelas dan terstruktur untuk meredakan kepanikan.,0.6858
+03-01-06-02-02-01-21.wav,21,Male,Fearful,Calm,44.9,0.2185,-0.186,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.7134
+03-01-06-02-02-02-21.wav,21,Male,Fearful,Fearful,95.39,-0.682,0.7161,Tinggi (+0.75),Negatif (-0.70),Berikan kepastian informasi yang jelas dan terstruktur untuk meredakan kepanikan.,0.6876
+03-01-07-01-02-02-21.wav,21,Male,Disgust,Disgust,92.17,-0.7433,0.2158,Sedang (+0.20),Negatif (-0.80),Evaluasi keluhan produk/layanan; terdeteksi ketidakpuasan atau penolakan kuat.,0.7158
+03-01-08-01-01-01-21.wav,21,Male,Surprised,Calm,95.97,0.5524,-0.5818,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.7052
+03-01-01-01-01-01-22.wav,22,Female,Neutral,Neutral,38.62,-0.0229,-0.3055,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,1.1352
+03-01-01-01-02-01-22.wav,22,Female,Neutral,Neutral,42.87,0.165,-0.2821,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,1.0263
+03-01-01-01-02-02-22.wav,22,Female,Neutral,Neutral,46.61,-0.0741,0.0917,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.8983
+03-01-02-01-02-02-22.wav,22,Female,Calm,Disgust,95.54,-0.7664,0.1817,Sedang (+0.20),Negatif (-0.80),Evaluasi keluhan produk/layanan; terdeteksi ketidakpuasan atau penolakan kuat.,0.6104
+03-01-03-01-02-02-22.wav,22,Female,Happy,Calm,39.9,0.0431,-0.3739,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.6458
+03-01-03-02-02-02-22.wav,22,Female,Happy,Calm,60.68,0.0739,-0.5989,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.6078
+03-01-04-01-02-01-22.wav,22,Female,Sad,Disgust,59.41,-0.5767,0.1682,Sedang (+0.20),Negatif (-0.80),Evaluasi keluhan produk/layanan; terdeteksi ketidakpuasan atau penolakan kuat.,0.5821
+03-01-04-02-01-02-22.wav,22,Female,Sad,Surprised,98.43,0.3506,0.8472,Tinggi (+0.85),Positif - Netral (+0.35),Respons spontan terhadap informasi baru; berikan klarifikasi atau verifikasi lanjutan.,0.5827
+03-01-06-01-01-02-22.wav,22,Female,Fearful,Fearful,93.78,-0.6885,0.6927,Tinggi (+0.75),Negatif (-0.70),Berikan kepastian informasi yang jelas dan terstruktur untuk meredakan kepanikan.,0.5813
+03-01-07-02-02-01-22.wav,22,Female,Disgust,Neutral,61.07,-0.0579,-0.0274,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.6174
+03-01-08-02-02-02-22.wav,22,Female,Surprised,Happy,77.35,0.4902,0.6863,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.577
+03-01-01-01-02-02-23.wav,23,Male,Neutral,Sad,79.6,-0.7014,-0.3651,Rendah (-0.65),Negatif (-0.75),"Gunakan pendekatan komunikasi empatik, suportif, dan intonasi tenang.",0.5989
+03-01-03-01-01-01-23.wav,23,Male,Happy,Happy,63.76,0.3826,0.6667,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.5779
+03-01-04-01-01-01-23.wav,23,Male,Sad,Neutral,71.41,0.0245,-0.0365,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.5829
+03-01-04-01-01-02-23.wav,23,Male,Sad,Surprised,76.6,0.2796,0.6951,Tinggi (+0.85),Positif - Netral (+0.35),Respons spontan terhadap informasi baru; berikan klarifikasi atau verifikasi lanjutan.,0.6124
+03-01-05-01-01-02-23.wav,23,Male,Angry,Surprised,95.79,0.3175,0.8226,Tinggi (+0.85),Positif - Netral (+0.35),Respons spontan terhadap informasi baru; berikan klarifikasi atau verifikasi lanjutan.,0.5831
+03-01-06-01-01-01-23.wav,23,Male,Fearful,Fearful,91.33,-0.6497,0.6862,Tinggi (+0.75),Negatif (-0.70),Berikan kepastian informasi yang jelas dan terstruktur untuk meredakan kepanikan.,0.5983
+03-01-07-01-01-02-23.wav,23,Male,Disgust,Sad,57.94,-0.3788,-0.2661,Rendah (-0.65),Negatif (-0.75),"Gunakan pendekatan komunikasi empatik, suportif, dan intonasi tenang.",0.5913
+03-01-07-02-02-01-23.wav,23,Male,Disgust,Sad,34.82,-0.1983,-0.1752,Rendah (-0.65),Negatif (-0.75),"Gunakan pendekatan komunikasi empatik, suportif, dan intonasi tenang.",0.9145
+03-01-07-02-02-02-23.wav,23,Male,Disgust,Calm,68.3,0.2746,-0.353,Rendah (-0.60),Positif (+0.60),Kondisi penutur sangat rileks dan kooperatif; pertahankan alur komunikasi.,0.9728
+03-01-08-02-02-01-23.wav,23,Male,Surprised,Angry,68.98,-0.8006,0.8429,Sangat Tinggi (+0.90),Sangat Negatif (-0.85),PERINGATAN ESKALASI: Segera aktifkan protokol de-eskalasi atau alihkan ke supervisor.,0.6399
+03-01-01-01-02-01-24.wav,24,Female,Neutral,Surprised,67.28,0.0043,0.6386,Tinggi (+0.85),Positif - Netral (+0.35),Respons spontan terhadap informasi baru; berikan klarifikasi atau verifikasi lanjutan.,0.6292
+03-01-02-01-01-02-24.wav,24,Female,Calm,Sad,54.0,-0.6867,-0.0812,Rendah (-0.65),Negatif (-0.75),"Gunakan pendekatan komunikasi empatik, suportif, dan intonasi tenang.",0.6127
+03-01-02-01-02-02-24.wav,24,Female,Calm,Disgust,78.36,-0.6152,0.2444,Sedang (+0.20),Negatif (-0.80),Evaluasi keluhan produk/layanan; terdeteksi ketidakpuasan atau penolakan kuat.,0.6117
+03-01-02-02-01-02-24.wav,24,Female,Calm,Surprised,40.62,-0.1851,0.7523,Tinggi (+0.85),Positif - Netral (+0.35),Respons spontan terhadap informasi baru; berikan klarifikasi atau verifikasi lanjutan.,0.5826
+03-01-03-01-02-01-24.wav,24,Female,Happy,Neutral,93.93,0.01,-0.0053,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.6035
+03-01-03-02-01-01-24.wav,24,Female,Happy,Fearful,48.31,-0.3107,0.4285,Tinggi (+0.75),Negatif (-0.70),Berikan kepastian informasi yang jelas dan terstruktur untuk meredakan kepanikan.,0.5853
+03-01-03-02-01-02-24.wav,24,Female,Happy,Sad,42.46,-0.1022,-0.4626,Rendah (-0.65),Negatif (-0.75),"Gunakan pendekatan komunikasi empatik, suportif, dan intonasi tenang.",0.5831
+03-01-03-02-02-02-24.wav,24,Female,Happy,Neutral,67.77,-0.0651,-0.1189,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.6009
+03-01-06-02-02-01-24.wav,24,Female,Fearful,Happy,81.05,0.6344,0.6405,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.5872
+03-01-07-01-01-02-24.wav,24,Female,Disgust,Neutral,89.71,-0.0255,0.0132,Rendah - Sedang (0.00),Netral (0.00),Percakapan berjalan normal; tidak memerlukan intervensi khusus.,0.6088
+03-01-07-02-02-02-24.wav,24,Female,Disgust,Happy,50.33,0.3975,0.3958,Tinggi (+0.75),Sangat Positif (+0.85),Pelanggan antusias/puas; momentum optimal untuk konfirmasi layanan atau apresiasi.,0.587
+03-01-08-02-01-01-24.wav,24,Female,Surprised,Disgust,96.98,-0.7926,0.2071,Sedang (+0.20),Negatif (-0.80),Evaluasi keluhan produk/layanan; terdeteksi ketidakpuasan atau penolakan kuat.,0.5991

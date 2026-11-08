@@ -1,0 +1,54 @@
+{
+    "proyek": "Sistem Deteksi Suara Menggunakan Random Forest",
+    "kelas": [
+        "bocor",
+        "normal"
+    ],
+    "preprocessing": {
+        "sampling_rate": 16000,
+        "channel": "mono",
+        "filter": "bandpass",
+        "frekuensi_minimum": 300,
+        "frekuensi_maksimum": 7500,
+        "durasi_segment": 1,
+        "panjang_sampel": 16000,
+        "normalisasi_amplitudo": true
+    },
+    "ekstraksi_fitur": {
+        "n_fft": 512,
+        "frame_length": 400,
+        "hop_length": 160,
+        "window": "hann",
+        "jumlah_mfcc": 20,
+        "jumlah_mel_filterbank": 40,
+        "center": false,
+        "jumlah_fitur": 50
+    },
+    "pembagian_dataset": {
+        "metode": "GroupShuffleSplit",
+        "random_state": 20,
+        "training": 484,
+        "testing": 211
+    },
+    "random_forest": {
+        "n_estimators": 200,
+        "max_depth": null,
+        "min_samples_split": 2,
+        "min_samples_leaf": 1,
+        "max_features": "sqrt",
+        "class_weight": "balanced",
+        "random_state": 42
+    },
+    "evaluasi": {
+        "akurasi_testing": 1.0,
+        "metode_validasi": "StratifiedGroupKFold",
+        "jumlah_fold": 5,
+        "rata_rata_akurasi_groupkfold": 99.8726
+    },
+    "keterbatasan": [
+        "Dataset normal berasal dari rekaman pipa air.",
+        "Dataset bocor berasal dari rekaman kebocoran gas.",
+        "Model berpotensi mempelajari perbedaan domain rekaman.",
+        "Model belum tervalidasi untuk mendeteksi kebocoran gas nyata."
+    ]
+}
