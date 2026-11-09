@@ -12,7 +12,7 @@
 	url = https://github.com/muhammadainulfuady/AudioClasification.git
 [submodule "proyek-klasifikasi-suara/suara-k5-b"]
 	path = proyek-klasifikasi-suara/suara-k5-b
-	url = https://github.com/AQ-UAA/DETECTIONCRY.git
+	url = git@github.com:AQ-UAA/DETECTIONCRY.git
 [submodule "proyek-klasifikasi-suara/suara-k7-b"]
 	path = proyek-klasifikasi-suara/suara-k7-b
 	url = https://github.com/Aisya08/deteksi-suara-kebocoran-gass.git
