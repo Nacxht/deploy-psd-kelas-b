@@ -1,5 +1,0 @@
-eksperimen,jumlah_fitur,akurasi,keterangan
-Random Forest utama,50,100.0,Menggunakan seluruh fitur
-Random Forest tanpa Flatness,48,100.0,Menghapus flatness_mean dan flatness_std
-Random Forest tanpa MFCC,10,100.0,Menghapus seluruh 40 fitur MFCC
-Decision Tree satu fitur,1,100.0,Hanya menggunakan flatness_mean

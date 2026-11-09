@@ -1,0 +1,18 @@
+[submodule "proyek-klasifikasi-suara/suara-k1-b"]
+	path = proyek-klasifikasi-suara/suara-k1-b
+	url = https://github.com/Fu4di4chmd/KLASIFIKASI_SUARA.git
+[submodule "proyek-klasifikasi-suara/suara-k2-b"]
+	path = proyek-klasifikasi-suara/suara-k2-b
+	url = https://github.com/HANN050505/klasifikasi-kran-air
+[submodule "proyek-klasifikasi-suara/suara-k3-b"]
+	path = proyek-klasifikasi-suara/suara-k3-b
+	url = https://github.com/SolehMajid/Klasifikasi-Sawmil-.git
+[submodule "proyek-klasifikasi-suara/suara-k4-b"]
+	path = proyek-klasifikasi-suara/suara-k4-b
+	url = https://github.com/muhammadainulfuady/AudioClasification.git
+[submodule "proyek-klasifikasi-suara/suara-k5-b"]
+	path = proyek-klasifikasi-suara/suara-k5-b
+	url = https://github.com/AQ-UAA/DETECTIONCRY.git
+[submodule "proyek-klasifikasi-suara/suara-k7-b"]
+	path = proyek-klasifikasi-suara/suara-k7-b
+	url = https://github.com/Aisya08/deteksi-suara-kebocoran-gass.git
